@@ -1,0 +1,53 @@
+============================================================
+CS50x Homepage - specification.txt
+============================================================
+
+---- 10 HTML Tags Used ----
+
+1. <nav>        - Navigation bar at the top of every page
+2. <ul>         - Unordered list for navbar links and social links
+3. <li>         - List items inside the navbar and social links
+4. <a>          - Hyperlinks to navigate between pages
+5. <input>      - Text and email input fields in the contact form
+6. <textarea>   - Multi-line message field in the contact form
+7. <label>      - Labels for form fields in the contact form
+8. <button>     - Clickable buttons for interactivity on all pages
+9. <hr>         - Horizontal rule to separate sections
+10. <footer>    - Footer section at the bottom of every page
+
+------------------------------------------------------------
+
+---- 5 CSS Properties Used ----
+
+1. font-family  - Sets the font for the entire page body
+2. padding      - Adds spacing inside elements like hero and footer
+3. background   - Sets background color or gradient (hero section)
+4. transform    - Used on cards to move them up on hover
+5. box-shadow   - Adds shadow to cards on hover for depth effect
+
+------------------------------------------------------------
+
+---- JavaScript Usage ----
+
+JavaScript is used in two ways:
+1. index.html   - A button randomly displays one of three welcome
+                  messages using Math.random() and DOM manipulation.
+2. contact.html - Form validation checks that all fields (name,
+                  email, message) are filled before showing a
+                  success alert, or an error alert if any are empty.
+
+------------------------------------------------------------
+
+---- Bootstrap Usage ----
+
+Bootstrap 4.5.3 is used across all pages for:
+1. Navbar       - Responsive navigation bar with a toggler button
+                  for mobile screens (navbar, navbar-expand-lg).
+2. Grid System  - Rows and columns (row, col-md-4, col-md-6)
+                  to organize content responsively.
+3. Cards        - Card components to display skills and interests.
+4. Alerts       - Success and danger alerts in the contact form
+                  (alert-success, alert-danger, d-none).
+5. Progress     - Progress bars in about.html to display skill levels.
+
+============================================================

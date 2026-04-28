@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Trivia</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 { color: #333; }
+        h2 { color: #555; margin-top: 40px; }
+
+        /* أزرار الاختيار من متعدد */
+        .btn {
+            display: inline-block;
+            margin: 5px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover { opacity: 0.9; }
+        .correct   { background-color: #2ecc71; }
+        .incorrect { background-color: #e74c3c; }
+
+        /* سؤال الإجابة الحرة */
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 60%;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #submit-btn {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        #feedback { margin-top: 10px; font-weight: bold; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <h1>Trivia!</h1>
+
+    <!-- السؤال الأول: اختيار من متعدد -->
+    <h2>Part 1: Multiple Choice</h2>
+    <p>What is the capital of France?</p>
+
+    <button class="btn" onclick="checkMC(this, false)">London</button>
+    <button class="btn" onclick="checkMC(this, false)">Berlin</button>
+    <button class="btn" onclick="checkMC(this, true)">Paris</button>
+    <button class="btn" onclick="checkMC(this, false)">Madrid</button>
+
+    <p id="mc-feedback"></p>
+
+    <!-- السؤال الثاني: إجابة حرة -->
+    <h2>Part 2: Free Response</h2>
+    <p>What does HTML stand for?</p>
+
+    <input type="text" id="free-answer" placeholder="Your answer here">
+    <button id="submit-btn" onclick="checkFree()">Submit</button>
+
+    <p id="feedback"></p>
+
+    <script>
+        // دالة اختيار من متعدد
+        function checkMC(button, isCorrect) {
+            // نمسح أي تلوين قديم على كل الأزرار
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.classList.remove('correct', 'incorrect');
+            });
+
+            if (isCorrect) {
+                button.classList.add('correct');
+                document.getElementById('mc-feedback').textContent = '✅ Correct!';
+                document.getElementById('mc-feedback').style.color = 'green';
+            } else {
+                button.classList.add('incorrect');
+                document.getElementById('mc-feedback').textContent = '❌ Incorrect!';
+                document.getElementById('mc-feedback').style.color = 'red';
+            }
+        }
+
+        // دالة الإجابة الحرة
+        function checkFree() {
+            const answer = document.getElementById('free-answer').value.trim().toLowerCase();
+            const feedback = document.getElementById('feedback');
+            const correctAnswer = 'hypertext markup language';
+
+            if (answer === correctAnswer) {
+                feedback.textContent = '✅ Correct!';
+                feedback.style.color = 'green';
+                document.getElementById('free-answer').style.borderColor = 'green';
+            } else {
+                feedback.textContent = '❌ Incorrect!';
+                feedback.style.color = 'red';
+                document.getElementById('free-answer').style.borderColor = 'red';
+            }
+        }
+    </script>
+
+</body>
+</html>
