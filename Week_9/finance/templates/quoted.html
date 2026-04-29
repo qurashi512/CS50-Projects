@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block title %}Quoted{% endblock %}
+
+{% block main %}
+<div class="text-center">
+    <h4>{{ stock.name }} ({{ stock.symbol }})</h4>
+    <p class="lead">Current Price: <strong>{{ stock.price | usd }}</strong></p>
+    <a href="/buy" class="btn btn-success">Buy Shares</a>
+</div>
+{% endblock %}
