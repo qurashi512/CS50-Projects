@@ -42,5 +42,5 @@ def index():
 @app.route("/delete/<int:id>")
 def delete(id):
     db.execute("DELETE FROM birthdays WHERE id = ?", id)
-    return redirect("/")
+    return redirect("/") 
 
